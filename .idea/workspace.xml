@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a42c620-8bfb-4559-93c6-2173af394e5c" name="Default Changelist" comment="" />
+    <list default="true" id="2a42c620-8bfb-4559-93c6-2173af394e5c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Match/MatchDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Match/MatchDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Matches/AllMatches.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Matches/AllMatches.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Teams/AllTeams.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Teams/AllTeams.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Teams/ListData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Teams/ListData.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,7 +18,11 @@
       <executable />
     </execution>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1qhsp7e8uXfrNilRER2gdBhGSab" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,7 +32,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/views/Match" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -54,6 +64,9 @@
       <workItem from="1618049862968" duration="4136000" />
       <workItem from="1618577042575" duration="3077000" />
       <workItem from="1618652426035" duration="7529000" />
+      <workItem from="1619422024739" duration="1231000" />
+      <workItem from="1619535433403" duration="891000" />
+      <workItem from="1620910703063" duration="4624000" />
     </task>
     <servers />
   </component>

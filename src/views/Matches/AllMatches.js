@@ -17,7 +17,7 @@ class AllMatches extends React.Component {
 
     getAllMatches(){
         const self = this;
-        axios.get('http://localhost:8080/matches/')
+        axios.get('http://localhost:8080/football/matches/')
             .then(function (response) {
                 const matches = [...self.state.matches];
                 for(let i = 0; i < response.data.length; i++) {

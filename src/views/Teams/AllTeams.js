@@ -17,7 +17,7 @@ class AllTeams extends React.Component {
 
     getAllTeams(){
         const self = this;
-        axios.get('http://localhost:8080/teams/')
+        axios.get('http://localhost:8080/football/teams/')
             .then(function (response) {
                 const teams = [...self.state.teams];
                 for(let i = 0; i < response.data.length; i++) {

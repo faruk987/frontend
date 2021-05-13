@@ -10,7 +10,6 @@ class MatchDetail extends React.Component {
             awayTeam:"",
             league:"",
             time:"",
-            date:"",
             homeScore:"",
             awayScore:""
         };
@@ -24,14 +23,13 @@ class MatchDetail extends React.Component {
 
     getMatchById(){
         const self = this;
-        axios.get('http://localhost:8080/matches/'+self.state.id)
+        axios.get('http://localhost:8080/football/matches/'+self.state.id)
             .then(function (response) {
                 self.setState({
                     homeTeam:response.data.homeTeam,
                     awayTeam:response.data.awayTeam,
                     league:response.data.league,
                     time:response.data.time,
-                    date:response.data.date,
                 });
                 return "succes"
             })
@@ -46,7 +44,7 @@ class MatchDetail extends React.Component {
                 <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
                     {this.state.homeTeam} <span className="text-color-success">Vs</span> {this.state.awayTeam}
                 </h1>
-                <p>Match in the {this.state.league}. Starting: {this.state.time}</p>
+                <p>Match in the {this.state.league}. Starting at: {this.state.time}</p>
                 <div style={{display: "flex", justifyContent: "space-between"}}>
                     <div>
                         <iframe width="420" height="345" src="https://www.youtube.com/embed/9rPCLe4ux-M">
