@@ -7,9 +7,18 @@ const ListData = props =>{
         return null;
     }
 
-    const handleClick = () => props.history.push({
+    const toMatch = () => props.history.push({
         pathname: '/match',
         state: { id: props.matches.id }
+    });
+
+    const toBet = () => props.history.push({
+        pathname: '/bet',
+        state: {
+            id: props.matches.id,
+            homeTeam:props.matches.homeTeam,
+            awayTeam:props.matches.awayTeam
+        }
     });
 
     return(
@@ -18,8 +27,12 @@ const ListData = props =>{
             <td>{props.matches.awayTeam}</td>
             <td>{props.matches.time}</td>
             <td>
-                <button className={"button button-primary button-wide-mobile button-m"} type="button" onClick={handleClick}>
-                    go
+                <button className={"button button-primary button-wide-mobile button-m"} style={{marginRight: "8px"}} type="button" onClick={toMatch}>
+                    WATCH
+                </button>
+
+                <button className={"button button-primary button-wide-mobile button-m"} onClick={toBet} type="button" >
+                    BET
                 </button>
             </td>
         </tr>

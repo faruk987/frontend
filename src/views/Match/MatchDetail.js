@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from "axios";
+import CommentSection from "../../components/sections/comment/CommentSection";
 
 class MatchDetail extends React.Component {
     constructor(props) {
@@ -14,7 +15,6 @@ class MatchDetail extends React.Component {
             awayScore:""
         };
         this.getMatchById = this.getMatchById.bind(this);
-        console.log("the id is: " + props.id)
     }
 
     componentDidMount() {
@@ -45,15 +45,14 @@ class MatchDetail extends React.Component {
                     {this.state.homeTeam} <span className="text-color-success">Vs</span> {this.state.awayTeam}
                 </h1>
                 <p>Match in the {this.state.league}. Starting at: {this.state.time}</p>
-                <div style={{display: "flex", justifyContent: "space-between"}}>
                     <div>
                         <iframe width="420" height="345" src="https://www.youtube.com/embed/9rPCLe4ux-M">
                         </iframe>
                     </div>
                     <div>
-                        <h2>chat</h2>
+                        <h2>Comments</h2>
+                        <CommentSection/>
                     </div>
-                </div>
             </>
         );
     }
