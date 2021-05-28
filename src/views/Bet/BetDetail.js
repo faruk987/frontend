@@ -72,9 +72,9 @@ class BetDetail extends React.Component {
                 </div>
                 <p/>
                 <p>
-                    In case of a win of the home team you tick the first field (1),
-                    in case of a draw the second field (x),
-                    or in case of a victory of the away team the third (2).
+                    In case of a <u>win of the home team</u> you tick the first field (1),
+                    in case of a <u>draw</u> the second field (x),
+                    or in case of a <u>victory of the away team</u> the third (2).
                     You do not have to predict the exact number of goals,
                     it is only about the ultimate winner or a draw.
                 </p>

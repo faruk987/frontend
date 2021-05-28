@@ -1,25 +1,25 @@
 import React from 'react';
 import axios from "axios";
 import Comments from "./Comments";
+import PostComment from "./PostComment";
 
 class AllComments extends React.Component {
       constructor(props) {
         super(props);
         this.state = {
-            eventId: props.eventId,
+            eventId: props.matchId,
             comments: [{item: ""}],
         };
 
-        this.getAllComments = this.getAllComments().bind(this);
     }
 
     componentDidMount() {
-        this.getAllComments();
+        this.getAllCommentsByMatchId();
     }
 
-    getAllComments(){
+    getAllCommentsByMatchId = () =>{
         const self = this;
-        axios.get('http://localhost:8080/comment/'+this.state.eventId)
+        axios.get('http://localhost:8080/comment/all/'+this.state.eventId)
             .then(function (response) {
                 const comments = [...self.state.comments];
                 for(let i = 0; i < response.data.length; i++) {
@@ -46,8 +46,8 @@ class AllComments extends React.Component {
         );
 
         return (<>
-            {/*{comments}*/}
-            <Comments/>
+                <PostComment handleChange={this.getAllCommentsByMatchId} matchId={this.state.eventId}/>
+                {comments}
             </>
         );
     }

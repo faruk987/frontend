@@ -27,7 +27,7 @@ const ListData = props =>{
             <td>{props.matches.awayTeam}</td>
             <td>{props.matches.time}</td>
             <td>
-                <button className={"button button-primary button-wide-mobile button-m"} style={{marginRight: "8px"}} type="button" onClick={toMatch}>
+                <button className={"button button-primary button-wide-mobile button-m"} style={{marginBottom: "4px"}} type="button" onClick={toMatch}>
                     WATCH
                 </button>
 

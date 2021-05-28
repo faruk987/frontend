@@ -1,25 +1,27 @@
 import "../../assets/scss/comment.scss";
 import React, {Component} from 'react';
 import axios from "axios";
+import AllComments from "./AllComments";
 
 class PostComment extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            sender: props.username,
-            matchId: props.eventId,
+            sender: "Faruk",
+            matchId: props.matchId,
             message: '',
         };
     }
 
+    componentDidMount() {
+        console.log("did mount")
+    }
+
     postNewComment = () =>{
-        console.log(this.state.user);
-        axios.post('http://localhost:8080/comment/',{
-            sender: this.state.sender,
-            matchId: this.state.matchId,
-            message: this.state.message,
-        }).then(function (response) {
+        console.log(this.state.sender);
+        axios.post('http://localhost:8080/comment/send?matchId='+this.state.matchId+'&sender='+this.state.sender+'&message='+this.state.message
+        ).then(function (response) {
             console.log(response);
         })
             .catch(function (error) {
@@ -35,21 +37,30 @@ class PostComment extends Component {
 
 
     handleSubmit = event => {
-        event.preventDefault();
-        this.postNewComment();
+        console.log(this.state.message)
+        event.preventDefault()
+
+        if (this.state.message !== ''){
+            this.postNewComment();
+            this.setState({
+                message: ''
+            })
+
+            this.props.handleChange()
+        }
     };
 
     render() {
         return (
-            <div>
+            <>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label>New comment</label>
-                        <input className={'inputClass'} type={'text'} value={this.state.message} onChange={this.handleMessageChange} required={true}/>
+                        <input type={'text'} value={this.state.message} onChange={this.handleMessageChange} required={true}/>
                     </div>
                     <button type={'submit'}>Send</button>
                 </form>
-            </div>
+            </>
         );
     }
 

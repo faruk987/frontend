@@ -51,7 +51,7 @@ class MatchDetail extends React.Component {
                     </div>
                     <div>
                         <h2>Comments</h2>
-                        <CommentSection/>
+                        <CommentSection matchId={this.state.id}/>
                     </div>
             </>
         );
