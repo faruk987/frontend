@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { SectionProps } from '../utils/SectionProps';
-import SignUpForm from "./auth/SignUpForm";
+import LoginForm from "./auth/LoginForm";
 
 const propTypes = {
     ...SectionProps.types
@@ -11,16 +11,16 @@ const defaultProps = {
     ...SectionProps.defaults
 }
 
-const Signup = ({
-                  className,
-                  topOuterDivider,
-                  bottomOuterDivider,
-                  topDivider,
-                  bottomDivider,
-                  hasBgColor,
-                  invertColor,
-                  ...props
-              }) => {
+const Login = ({
+                    className,
+                    topOuterDivider,
+                    bottomOuterDivider,
+                    topDivider,
+                    bottomDivider,
+                    hasBgColor,
+                    invertColor,
+                    ...props
+                }) => {
 
     const outerClasses = classNames(
         'hero section center-content',
@@ -44,12 +44,13 @@ const Signup = ({
         >
             <div className="container-sm">
                 <div className={innerClasses}>
-                        <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
-                            Sign <span className="text-color-success">Up</span>
-                        </h1>
-                        <div className="container-xs">
-                            <SignUpForm/>
-                            <p>Already have an account? <a href={'/login'}>Login!</a></p>
+
+                    <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
+                        Log <span className="text-color-success">In</span>
+                    </h1>
+                    <div className="container-xs">
+                        <LoginForm/>
+                        <p>Don't have an account yet? <a href={'/signup'}>Sing Up</a></p>
                     </div>
                 </div>
             </div>
@@ -57,7 +58,7 @@ const Signup = ({
     );
 }
 
-Signup.propTypes = propTypes;
-Signup.defaultProps = defaultProps;
+Login.propTypes = propTypes;
+Login.defaultProps = defaultProps;
 
-export default Signup;
+export default Login;

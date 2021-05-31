@@ -14,6 +14,10 @@ import Match from "./views/Match";
 import Teams from "./views/Teams";
 import Bet from "./views/Bet";
 import Signup from "./views/Signup";
+import Login from "./views/Login";
+import BetHistory from "./views/BetHistory";
+import AuthService from "./services/Auth/AuthService";
+
 
 // Initialize Google Analytics
 ReactGA.initialize(process.env.REACT_APP_GA_CODE);
@@ -27,6 +31,8 @@ const App = () => {
 
   const childRef = useRef();
   let location = useLocation();
+    const user = AuthService.getCurrentUser();
+
 
   useEffect(() => {
     const page = location.pathname;
@@ -42,11 +48,19 @@ const App = () => {
       children={() => (
         <Switch>
           <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
+            {user &&
+            <AppRoute exact path="/bet/history" component={BetHistory} layout={LayoutDefault}/>
+            }
           <AppRoute exact path="/matches" component={Matches} layout={LayoutDefault}/>
             <AppRoute exact path="/match" component={Match} layout={LayoutDefault}/>
             <AppRoute exact path="/bet" component={Bet} layout={LayoutDefault}/>
             <AppRoute exact path="/teams" component={Teams} layout={LayoutDefault}/>
+            {!user &&
             <AppRoute exact path="/signup" component={Signup} layout={LayoutDefault}/>
+            &&
+            <AppRoute exact path="/login" component={Login} layout={LayoutDefault}/>
+            }
+
         </Switch>
       )} />
   );

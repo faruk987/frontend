@@ -13,6 +13,7 @@ const AppRoute = ({
     <Route
       {...rest}
       render={props => (
+
         <Layout>
           <Component {...props} />
         </Layout>

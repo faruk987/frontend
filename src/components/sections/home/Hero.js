@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { SectionProps } from '../../../utils/SectionProps';
+import Bal from "../../../assets/images/bal.gif";
 
 const propTypes = {
   ...SectionProps.types
@@ -50,7 +51,9 @@ const Hero = ({
             <div className="container-xs">
               <p className="m-0 mb-32 reveal-from-bottom" data-reveal-delay="400">
                 Watch, chat and bet. BitMatch for the win!
+                <img style={{width: '30%', transform:'rotate(90deg)'}} src={Bal} alt={'bal'}/>
                 </p>
+              <hr/>
             </div>
           </div>
         </div>

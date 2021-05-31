@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import { SectionProps } from '../utils/SectionProps';
-import SignUpForm from "./auth/SignUpForm";
+import { SectionProps } from '../../../utils/SectionProps';
+import HistoryList from "../../../views/Bet/History/HistoryList";
 
 const propTypes = {
     ...SectionProps.types
@@ -11,7 +11,7 @@ const defaultProps = {
     ...SectionProps.defaults
 }
 
-const Signup = ({
+const HistoryPage = ({
                   className,
                   topOuterDivider,
                   bottomOuterDivider,
@@ -44,12 +44,13 @@ const Signup = ({
         >
             <div className="container-sm">
                 <div className={innerClasses}>
+                    <div className="hero-content">
                         <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
-                            Sign <span className="text-color-success">Up</span>
+                            Your <span className="text-color-success">Bet</span> History
                         </h1>
                         <div className="container-xs">
-                            <SignUpForm/>
-                            <p>Already have an account? <a href={'/login'}>Login!</a></p>
+                            <HistoryList/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,7 +58,7 @@ const Signup = ({
     );
 }
 
-Signup.propTypes = propTypes;
-Signup.defaultProps = defaultProps;
+HistoryPage.propTypes = propTypes;
+HistoryPage.defaultProps = defaultProps;
 
-export default Signup;
+export default HistoryPage;

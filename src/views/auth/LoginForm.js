@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from "axios";
 import '../../assets/singup.scss'
+import AuthService from "../../services/Auth/AuthService";
 
 class LoginForm extends Component {
     constructor(props) {
@@ -40,16 +41,13 @@ class LoginForm extends Component {
     };
 
 
-    /*    handleSubmit = event => {
+        handleSubmit = event => {
             event.preventDefault()
 
-            if (this.state.message !== ''){
-                this.postNewUser();
-                this.setState({
-                    message: ''
-                })
+            if (this.state.username !== ''){
+                AuthService.login(this.state.username, this.state.password)
             }
-        };*/
+        };
 
     render() {
         return (

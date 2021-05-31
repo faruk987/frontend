@@ -2,6 +2,7 @@ import React from 'react';
 // import sections
 import Hero from '../components/sections/home/Hero';
 
+
 const Home = () => {
 
   return (
