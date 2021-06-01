@@ -59,6 +59,13 @@ const Header = ({
     setIsactive(false);
   }
 
+  const logout = () =>{
+    document.body.classList.remove('off-nav-is-active');
+    nav.current && (nav.current.style.maxHeight = null);
+    setIsactive(false);
+    AuthService.logout()
+  }
+
   const keyPress = (e) => {
     isActive && e.keyCode === 27 && closeMenu();
   }
@@ -141,10 +148,21 @@ const Header = ({
                       className="list-reset header-nav-right"
                   >
                     <li>
-                      <Link to="/" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>{user.username}</Link>
+                      <Link to="/profile" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>{user.username}</Link>
                     </li>
                   </ul>
                   }
+                  {user &&
+
+                  <ul
+                      className="list-reset header-nav-right"
+                  >
+                    <li>
+                      <Link to="/" className="button button-dark button-sm" onClick={logout}>Logout</Link>
+                    </li>
+                  </ul>
+                  }
+
                 </div>
               </nav>
             </>}

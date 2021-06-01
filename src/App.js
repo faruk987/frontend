@@ -17,6 +17,7 @@ import Signup from "./views/Signup";
 import Login from "./views/Login";
 import BetHistory from "./views/BetHistory";
 import AuthService from "./services/Auth/AuthService";
+import Profile from "./views/Profile";
 
 
 // Initialize Google Analytics
@@ -47,18 +48,22 @@ const App = () => {
       ref={childRef}
       children={() => (
         <Switch>
-          <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
+            <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
             {user &&
-            <AppRoute exact path="/bet/history" component={BetHistory} layout={LayoutDefault}/>
+                <AppRoute exact path="/bet/history" component={BetHistory} layout={LayoutDefault}/>
             }
-          <AppRoute exact path="/matches" component={Matches} layout={LayoutDefault}/>
+            {user &&
+            <AppRoute exact path="/profile" component={Profile} layout={LayoutDefault}/>
+            }
+            <AppRoute exact path="/matches" component={Matches} layout={LayoutDefault}/>
             <AppRoute exact path="/match" component={Match} layout={LayoutDefault}/>
             <AppRoute exact path="/bet" component={Bet} layout={LayoutDefault}/>
             <AppRoute exact path="/teams" component={Teams} layout={LayoutDefault}/>
             {!user &&
-            <AppRoute exact path="/signup" component={Signup} layout={LayoutDefault}/>
-            &&
-            <AppRoute exact path="/login" component={Login} layout={LayoutDefault}/>
+                <AppRoute exact path="/signup" component={Signup} layout={LayoutDefault}/>
+            }
+            {!user &&
+                <AppRoute exact path="/login" component={Login} layout={LayoutDefault}/>
             }
 
         </Switch>

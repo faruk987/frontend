@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from "axios";
 import '../../assets/singup.scss'
 import AuthService from "../../services/Auth/AuthService";
+import { withRouter } from "react-router-dom";
 
 class LoginForm extends Component {
     constructor(props) {
@@ -14,7 +15,10 @@ class LoginForm extends Component {
     }
 
     componentDidMount() {
-
+        // redirect to home if already logged in
+        if (AuthService.getCurrentUser()) {
+            this.props.history.push('/');
+        }
     }
 
     /*postNewUser = () =>{
@@ -40,13 +44,23 @@ class LoginForm extends Component {
         })
     };
 
-
-        handleSubmit = event => {
-            event.preventDefault()
+       handleSubmit = event => {
+           event.preventDefault();
 
             if (this.state.username !== ''){
                 AuthService.login(this.state.username, this.state.password)
+                    .then(
+                        user => {
+                            const { from } = this.props.location.state || { from: { pathname: "/" } };
+                            this.props.history.push(from);
+                            console.log(user)
+                        },
+                        error => {
+                            console.log(error)
+                        }
+                    );
             }
+
         };
 
     render() {
@@ -72,5 +86,5 @@ class LoginForm extends Component {
 
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);
 
