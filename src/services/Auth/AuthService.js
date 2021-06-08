@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:9999/api/login/";
+const API_URL = "http://localhost:8080/auth/user/login";
 
 class AuthService {
     login(username, password) {
         return axios
-            .get(API_URL+'?login='+username+'&password='+password)
+            .get(API_URL+'?username='+username+'&password='+password)
             .then(response => {
                 console.log(response.data)
                 if (response.data != null) {

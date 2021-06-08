@@ -9,7 +9,7 @@ class ProfileForm extends Component {
         super(props);
 
         this.state = {
-            user: AuthService.getCurrentUser(),
+            user: AuthService.getCurrentUser().username,
             password: '',
             passwordrep: '',
         };

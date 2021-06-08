@@ -2,24 +2,30 @@ import "../../assets/scss/comment.scss";
 import React, {Component} from 'react';
 import axios from "axios";
 import AllComments from "./AllComments";
+import AuthService from "../../services/Auth/AuthService";
 
 class PostComment extends Component {
     constructor(props) {
         super(props);
 
+        const userObj = AuthService.getCurrentUser();
+        let username = '';
+        if (userObj != null){
+            username = userObj.username
+        }
+
         this.state = {
-            sender: "Faruk",
+            sender: username,
             matchId: props.matchId,
             message: '',
         };
     }
 
     componentDidMount() {
-        console.log("did mount")
     }
 
     postNewComment = () =>{
-        console.log(this.state.sender);
+        if (this.state.sender !== ''){
         axios.post('http://localhost:8080/comment/send?matchId='+this.state.matchId+'&sender='+this.state.sender+'&message='+this.state.message
         ).then(function (response) {
             console.log(response);
@@ -27,6 +33,8 @@ class PostComment extends Component {
             .catch(function (error) {
                 console.log(error.response);
             });
+        }
+
     };
 
     handleMessageChange = event => {
@@ -37,7 +45,6 @@ class PostComment extends Component {
 
 
     handleSubmit = event => {
-        console.log(this.state.message)
         event.preventDefault()
 
         if (this.state.message !== ''){
@@ -46,7 +53,7 @@ class PostComment extends Component {
                 message: ''
             })
 
-            this.props.handleChange()
+            return this.props.handleChange
         }
     };
 

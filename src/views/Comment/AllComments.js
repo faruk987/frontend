@@ -2,6 +2,7 @@ import React from 'react';
 import axios from "axios";
 import Comments from "./Comments";
 import PostComment from "./PostComment";
+import AuthService from "../../services/Auth/AuthService";
 
 class AllComments extends React.Component {
       constructor(props) {
@@ -11,6 +12,7 @@ class AllComments extends React.Component {
             comments: [{item: ""}],
         };
 
+        const user = AuthService.getCurrentUser();
     }
 
     componentDidMount() {
@@ -46,7 +48,7 @@ class AllComments extends React.Component {
         );
 
         return (<>
-                <PostComment handleChange={this.getAllCommentsByMatchId} matchId={this.state.eventId}/>
+                <PostComment handleChange={this.getAllCommentsByMatchId()} matchId={this.state.eventId}/>
                 {comments}
             </>
         );

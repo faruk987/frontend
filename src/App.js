@@ -18,6 +18,7 @@ import Login from "./views/Login";
 import BetHistory from "./views/BetHistory";
 import AuthService from "./services/Auth/AuthService";
 import Profile from "./views/Profile";
+import Chat from "./views/Chat";
 
 
 // Initialize Google Analytics
@@ -55,6 +56,9 @@ const App = () => {
             {user &&
             <AppRoute exact path="/profile" component={Profile} layout={LayoutDefault}/>
             }
+
+            <AppRoute exact path="/chat" component={Chat} layout={LayoutDefault}/>
+
             <AppRoute exact path="/matches" component={Matches} layout={LayoutDefault}/>
             <AppRoute exact path="/match" component={Match} layout={LayoutDefault}/>
             <AppRoute exact path="/bet" component={Bet} layout={LayoutDefault}/>

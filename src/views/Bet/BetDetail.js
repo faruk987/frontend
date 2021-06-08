@@ -1,12 +1,22 @@
 import React from 'react';
 import axios from "axios";
 import CommentSection from "../../components/sections/comment/CommentSection";
+import AuthService from "../../services/Auth/AuthService";
+import PostComment from "../Comment/PostComment";
 
 class BetDetail extends React.Component {
     constructor(props) {
         super(props);
+
+        const userObj = AuthService.getCurrentUser();
+        let username = '';
+        if (userObj != null){
+            username = userObj.username
+        }
+
         this.state = {
             id: props.id,
+            user: username,
             homeTeam: props.homeTeam,
             awayTeam: props.awayTeam,
             prediction:"",
@@ -80,10 +90,10 @@ class BetDetail extends React.Component {
                 </p>
                 <hr/>
                 <p/>
-                <label style={{marginRight: "8px"}}>Your inlay</label>
                 <p>
                     Your prediction is: {this.state.predictionText}
                 </p>
+                <label style={{marginRight: "8px"}}>Your inlay</label>
                 <input type="number" name="inlay" min="10" />
                 <p/>
                 <button className="button button-primary button-m" type="button">Place BET</button>
