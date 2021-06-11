@@ -1,12 +1,14 @@
 import React from 'react';
 import axios from "axios";
 import CommentSection from "../../components/sections/comment/CommentSection";
+import { withRouter } from "react-router-dom";
 
 class MatchDetail extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             id: props.id,
+            quotation:"",
             homeTeam:"",
             awayTeam:"",
             league:"",
@@ -23,11 +25,13 @@ class MatchDetail extends React.Component {
 
     getMatchById(){
         const self = this;
-        axios.get('http://localhost:8080/football/matches/'+self.state.id)
+        axios.get('http://localhost:8082/matches/'+self.state.id)
             .then(function (response) {
+                console.log(response)
                 self.setState({
                     homeTeam:response.data.homeTeam,
                     awayTeam:response.data.awayTeam,
+                    quotation:response.data.quotation,
                     league:response.data.league,
                     time:response.data.time,
                 });
@@ -37,6 +41,16 @@ class MatchDetail extends React.Component {
                 console.log(error);
             });
     };
+
+    toBet = () => this.props.history.push({
+        pathname: '/bet',
+        state: {
+            quotation: this.state.quotation,
+            id: this.state.id,
+            homeTeam:this.state.homeTeam,
+            awayTeam:this.state.awayTeam
+        }
+    });
 
     render() {
         return (
@@ -49,6 +63,12 @@ class MatchDetail extends React.Component {
                         <iframe width="420" height="345" src="https://www.youtube.com/embed/9rPCLe4ux-M">
                         </iframe>
                     </div>
+                    <div >
+                        <button className={"button button-primary"} onClick={this.toBet} type="button" >
+                            PLACE A BET!
+                        </button>
+                    </div>
+
                     <div>
                         <h2>Comments</h2>
                         <CommentSection matchId={this.state.id}/>
@@ -58,4 +78,4 @@ class MatchDetail extends React.Component {
     }
 }
 
-export default MatchDetail;
+export default withRouter(MatchDetail);

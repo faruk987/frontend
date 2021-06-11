@@ -21,7 +21,7 @@ class AllComments extends React.Component {
 
     getAllCommentsByMatchId = () =>{
         const self = this;
-        axios.get('http://localhost:8080/comment/all/'+this.state.eventId)
+        axios.get('http://localhost:8081/comment/all/'+this.state.eventId)
             .then(function (response) {
                 const comments = [...self.state.comments];
                 for(let i = 0; i < response.data.length; i++) {

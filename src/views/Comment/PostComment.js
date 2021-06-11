@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import axios from "axios";
 import AllComments from "./AllComments";
 import AuthService from "../../services/Auth/AuthService";
+import authHeader from "../../services/Auth/authHeader";
 
 class PostComment extends Component {
     constructor(props) {
@@ -26,7 +27,10 @@ class PostComment extends Component {
 
     postNewComment = () =>{
         if (this.state.sender !== ''){
-        axios.post('http://localhost:8080/comment/send?matchId='+this.state.matchId+'&sender='+this.state.sender+'&message='+this.state.message
+        axios.post('http://localhost:8081/comment/send?matchId='+this.state.matchId+'&sender='+this.state.sender+'&message='+this.state.message,
+            null,{
+                headers:authHeader()
+            }
         ).then(function (response) {
             console.log(response);
         })

@@ -57,7 +57,7 @@ const App = () => {
             <AppRoute exact path="/profile" component={Profile} layout={LayoutDefault}/>
             }
 
-            <AppRoute exact path="/chat" component={Chat} layout={LayoutDefault}/>
+            {/*<AppRoute exact path="/chat" component={Chat} layout={LayoutDefault}/>*/}
 
             <AppRoute exact path="/matches" component={Matches} layout={LayoutDefault}/>
             <AppRoute exact path="/match" component={Match} layout={LayoutDefault}/>

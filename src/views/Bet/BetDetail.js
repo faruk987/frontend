@@ -3,6 +3,7 @@ import axios from "axios";
 import CommentSection from "../../components/sections/comment/CommentSection";
 import AuthService from "../../services/Auth/AuthService";
 import PostComment from "../Comment/PostComment";
+import authHeader from "../../services/Auth/authHeader";
 
 class BetDetail extends React.Component {
     constructor(props) {
@@ -17,34 +18,37 @@ class BetDetail extends React.Component {
         this.state = {
             id: props.id,
             user: username,
+            quotation:props.quotation,
             homeTeam: props.homeTeam,
             awayTeam: props.awayTeam,
             prediction:"",
-            predictionText:""
+            predictionText:"",
+            inlay:10
         };
-        //this.getMatchById = this.getMatchById.bind(this);
     }
 
-   /* componentDidMount() {
-        this.getMatchById();
-    }*/
+    componentDidMount() {
+    }
 
-    /*getMatchById(){
-        const self = this;
-        axios.get('http://localhost:8080/football/matches/'+self.state.id)
-            .then(function (response) {
-                self.setState({
-                    homeTeam:response.data.homeTeam,
-                    awayTeam:response.data.awayTeam,
-                    league:response.data.league,
-                    time:response.data.time,
-                });
-                return "succes"
+    placeBet = () =>{
+        if (this.state.user !== ''){
+            axios.post('http://localhost:8084/gamble/?eventId='+this.state.id+
+                '&prediction='+this.state.prediction+
+                '&quotation='+this.state.quotation+
+                '&inlay='+this.state.inlay+
+                '&user='+this.state.user,
+                {
+                    headers:authHeader()
+                }
+            ).then(function (response) {
+                console.log(response);
             })
-            .catch(function (error) {
-                console.log(error);
-            });
-    };*/
+                .catch(function (error) {
+                    console.log(error.response);
+                });
+        }
+
+    };
 
 
     on1Click = () =>{
@@ -67,6 +71,21 @@ class BetDetail extends React.Component {
             predictionText: "It is going to end in a draw!"
         })
     }
+
+    handleInlayChange = event => {
+        this.setState({
+            inlay: event.target.value
+        })
+    };
+
+    handleSubmit = event => {
+     //controleren en versturen naar backend
+        event.preventDefault();
+
+        if (this.state.prediction !== '' && this.state.inlay >= 10){
+            this.placeBet()
+        }
+    };
 
     render() {
         return (
@@ -91,12 +110,13 @@ class BetDetail extends React.Component {
                 <hr/>
                 <p/>
                 <p>
+                    Quotation: {this.state.quotation}<br/>
                     Your prediction is: {this.state.predictionText}
                 </p>
                 <label style={{marginRight: "8px"}}>Your inlay</label>
-                <input type="number" name="inlay" min="10" />
+                <input value={this.state.inlay} onChange={this.handleInlayChange} type="number" name="inlay" min="10" />
                 <p/>
-                <button className="button button-primary button-m" type="button">Place BET</button>
+                <button onClick={this.handleSubmit} className="button button-primary button-m" type="button">Place BET</button>
             </>
         );
     }

@@ -46,7 +46,7 @@ const BetPage = ({
       <div className="container-sm">
         <div className={innerClasses}>
           <div className="hero-content">
-            <BetDetail homeTeam={props.homeTeam} awayTeam={props.awayTeam} id={props.id}/>
+            <BetDetail quotation={props.quotation} homeTeam={props.homeTeam} awayTeam={props.awayTeam} id={props.id}/>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ const Bet = (props) => {
 
     return (
         <>
-            <BetPage homeTeam={location.state.homeTeam} awayTeam={location.state.awayTeam} id={location.state.id}/>
+            <BetPage quotation={location.state.quotation} homeTeam={location.state.homeTeam} awayTeam={location.state.awayTeam} id={location.state.id}/>
         </>
     );
 }

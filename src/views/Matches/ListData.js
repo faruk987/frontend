@@ -12,15 +12,6 @@ const ListData = props =>{
         state: { id: props.matches.id }
     });
 
-    const toBet = () => props.history.push({
-        pathname: '/bet',
-        state: {
-            id: props.matches.id,
-            homeTeam:props.matches.homeTeam,
-            awayTeam:props.matches.awayTeam
-        }
-    });
-
     return(
         <tr>
             <td>{props.matches.homeTeam}</td>
@@ -29,10 +20,6 @@ const ListData = props =>{
             <td>
                 <button className={"button button-primary button-wide-mobile button-m"} style={{marginBottom: "4px"}} type="button" onClick={toMatch}>
                     WATCH
-                </button>
-
-                <button className={"button button-primary button-wide-mobile button-m"} onClick={toBet} type="button" >
-                    BET
                 </button>
             </td>
         </tr>

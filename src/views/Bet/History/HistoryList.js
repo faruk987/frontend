@@ -1,11 +1,20 @@
 import React from 'react';
 import axios from "axios";
 import ListData from "./ListData"
+import AuthService from "../../../services/Auth/AuthService";
 
 class AllMatches extends React.Component {
     constructor(props) {
         super(props);
+
+        const userObj = AuthService.getCurrentUser();
+        let username = '';
+        if (userObj != null){
+            username = userObj.username
+        }
+
         this.state = {
+            user: username,
             bets: [{item:""}],
         };
         this.getAllBets = this.getAllBets.bind(this);
@@ -17,7 +26,7 @@ class AllMatches extends React.Component {
 
     getAllBets(){
         const self = this;
-        axios.get('http://localhost:8080/')
+        axios.get('http://localhost:8084/gamble/all?user='+this.state.user)
             .then(function (response) {
                 const bets = [...self.state.bets];
                 for(let i = 0; i < response.data.length; i++) {
