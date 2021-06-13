@@ -1,7 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import { SectionProps } from '../../../utils/SectionProps';
-import Bal from "../../../assets/images/bal.gif";
+import MatchDetail from "../../../views/Match/MatchDetail";
+import BetDetail from "../../../views/Bet/BetDetail";
 
 const propTypes = {
   ...SectionProps.types
@@ -11,7 +12,7 @@ const defaultProps = {
   ...SectionProps.defaults
 }
 
-const Hero = ({
+const BetPage = ({
   className,
   topOuterDivider,
   bottomOuterDivider,
@@ -45,16 +46,7 @@ const Hero = ({
       <div className="container-sm">
         <div className={innerClasses}>
           <div className="hero-content">
-            <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
-              Welcome to <span className="text-color-success">BitMatch</span>
-            </h1>
-            <div className="container-xs">
-              <p className="m-0 mb-32 reveal-from-bottom" data-reveal-delay="400">
-                Watch, chat and bet. BitMatch for the win!
-                <img style={{width: '30%', transform:'rotate(90deg)'}} src={Bal} alt={'bal'}/>
-                </p>
-              <hr/>
-            </div>
+            <BetDetail quotation={props.quotation} homeTeam={props.homeTeam} awayTeam={props.awayTeam} id={props.id}/>
           </div>
         </div>
       </div>
@@ -62,7 +54,7 @@ const Hero = ({
   );
 }
 
-Hero.propTypes = propTypes;
-Hero.defaultProps = defaultProps;
+BetPage.propTypes = propTypes;
+BetPage.defaultProps = defaultProps;
 
-export default Hero;
+export default BetPage;

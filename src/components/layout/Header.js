@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import Logo from './partials/Logo';
+import AuthService from "../../services/Auth/AuthService";
 
 const propTypes = {
   navPosition: PropTypes.string,
@@ -58,6 +59,13 @@ const Header = ({
     setIsactive(false);
   }
 
+  const logout = () =>{
+    document.body.classList.remove('off-nav-is-active');
+    nav.current && (nav.current.style.maxHeight = null);
+    setIsactive(false);
+    AuthService.logout()
+  }
+
   const keyPress = (e) => {
     isActive && e.keyCode === 27 && closeMenu();
   }
@@ -73,6 +81,8 @@ const Header = ({
     bottomOuterDivider && 'has-bottom-divider',
     className
   );
+
+  const user = AuthService.getCurrentUser();
 
   return (
     <header
@@ -117,18 +127,42 @@ const Header = ({
                     <li>
                       <Link to="/teams" onClick={closeMenu}>Teams</Link>
                     </li>
+                    {user &&
                     <li>
-                      <Link to="#0" onClick={closeMenu}>Documentation</Link>
+                      <Link to="/bet/history" onClick={closeMenu}>Bet History</Link>
                     </li>
+                    }
                   </ul>
-                  {!hideSignin &&
+                  {!user && !hideSignin &&
                     <ul
                       className="list-reset header-nav-right"
                     >
                       <li>
-                        <Link to="#0" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Sign up</Link>
+                        <Link to="/signup" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Sign up</Link>
                       </li>
                     </ul>}
+
+                  {user &&
+
+                  <ul
+                      className="list-reset header-nav-right"
+                  >
+                    <li>
+                      <Link to="/profile" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>{user.username}</Link>
+                    </li>
+                  </ul>
+                  }
+                  {user &&
+
+                  <ul
+                      className="list-reset header-nav-right"
+                  >
+                    <li>
+                      <Link to="/" className="button button-dark button-sm" onClick={logout}>Logout</Link>
+                    </li>
+                  </ul>
+                  }
+
                 </div>
               </nav>
             </>}

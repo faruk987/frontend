@@ -2,6 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 import { SectionProps } from '../../../utils/SectionProps';
 import Bal from "../../../assets/images/bal.gif";
+import AuthService from "../../../services/Auth/AuthService";
+import ProfileForm from "../../../views/Profile/ProfileForm";
 
 const propTypes = {
   ...SectionProps.types
@@ -11,7 +13,7 @@ const defaultProps = {
   ...SectionProps.defaults
 }
 
-const Hero = ({
+const ProfilePage = ({
   className,
   topOuterDivider,
   bottomOuterDivider,
@@ -37,6 +39,8 @@ const Hero = ({
     bottomDivider && 'has-bottom-divider'
   );
 
+  const user = AuthService.getCurrentUser();
+
   return (
     <section
       {...props}
@@ -46,14 +50,11 @@ const Hero = ({
         <div className={innerClasses}>
           <div className="hero-content">
             <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
-              Welcome to <span className="text-color-success">BitMatch</span>
+              Hey <span className="text-color-success">{user.username}</span>!
             </h1>
             <div className="container-xs">
-              <p className="m-0 mb-32 reveal-from-bottom" data-reveal-delay="400">
-                Watch, chat and bet. BitMatch for the win!
-                <img style={{width: '30%', transform:'rotate(90deg)'}} src={Bal} alt={'bal'}/>
-                </p>
               <hr/>
+              <ProfileForm/>
             </div>
           </div>
         </div>
@@ -62,7 +63,7 @@ const Hero = ({
   );
 }
 
-Hero.propTypes = propTypes;
-Hero.defaultProps = defaultProps;
+ProfilePage.propTypes = propTypes;
+ProfilePage.defaultProps = defaultProps;
 
-export default Hero;
+export default ProfilePage;
