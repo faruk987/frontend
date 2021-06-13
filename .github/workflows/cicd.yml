@@ -33,7 +33,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
         tags: latest
-        image: farukaydin7/frontend:latest
+        image: farukaydin7/frontend
         registry: docker.io
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
