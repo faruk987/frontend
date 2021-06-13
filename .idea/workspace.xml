@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a42c620-8bfb-4559-93c6-2173af394e5c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sections/bet/BetPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/bet/BetPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/Auth/AuthService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/Auth/AuthService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Bet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Bet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Bet/BetDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Bet/BetDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Bet/History/HistoryList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Bet/History/HistoryList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Bet/History/ListData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Bet/History/ListData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Comment/AllComments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Comment/AllComments.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Comment/PostComment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Comment/PostComment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Match/MatchDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Match/MatchDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Matches/AllMatches.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Matches/AllMatches.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Matches/ListData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Matches/ListData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Teams/AllTeams.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Teams/AllTeams.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +86,9 @@
       <workItem from="1622187037657" duration="24560000" />
       <workItem from="1622566077486" duration="5509000" />
       <workItem from="1622788286704" duration="11883000" />
-      <workItem from="1623395730573" duration="10294000" />
+      <workItem from="1623395730573" duration="10530000" />
+      <workItem from="1623485825025" duration="4582000" />
+      <workItem from="1623578768594" duration="948000" />
     </task>
     <task id="LOCAL-00001" summary="gateway instead of microservices">
       <created>1620916812800</created>
@@ -140,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623138480011</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="up to date">
+      <created>1623409601265</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1623409601265</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,17 +152,18 @@
     <MESSAGE value="auth services and more" />
     <MESSAGE value="login/logout works" />
     <MESSAGE value="Auth works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Auth works" />
+    <MESSAGE value="up to date" />
+    <option name="LAST_COMMIT_MESSAGE" value="up to date" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="70" key="#Notifications" timestamp="1618050443398">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="70" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1618050443398" />
-    <state x="535" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1618652490109">
+    <state x="535" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1623578901370">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="535" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1618652490109" />
+    <state x="535" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1623578901370" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1618049159445">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -172,10 +172,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="528" y="283" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1618050433211" />
-    <state x="383" y="6" key="CommitChangelistDialog2" timestamp="1623138478982">
+    <state x="383" y="6" key="CommitChangelistDialog2" timestamp="1623409597782">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="383" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1623138478982" />
+    <state x="383" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1623409597782" />
     <state x="549" y="167" width="438" height="585" key="FileChooserDialogImpl" timestamp="1623087896134">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -204,10 +204,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1618050703600" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1622571615329">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1623409609539">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1622571615329" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1623409609539" />
     <state x="418" y="31" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1618653128270">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
