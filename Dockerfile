@@ -1,13 +1,16 @@
-FROM node:14.9
+FROM node:10-alpine as build
+
+RUN apk update && apk upgrade && \
+  apk add --no-cache bash git openssh yarn
+
+RUN mkdir /app
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json .
 
-RUN npm install
+RUN npm install --silent
+RUN npm install react-scripts@3.4.1 -g --silent
 
-COPY . .
-
-EXPOSE 3000
-
-CMD [ "npm", "start" ]
+COPY . ./
+CMD ["npm", "start"]
