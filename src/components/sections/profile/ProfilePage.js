@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import { SectionProps } from '../../../utils/SectionProps';
-import Bal from "../../../assets/images/bal.gif";
 import AuthService from "../../../services/Auth/AuthService";
 import ProfileForm from "../../../views/Profile/ProfileForm";
 
