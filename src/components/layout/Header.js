@@ -81,8 +81,7 @@ const Header = ({
     bottomOuterDivider && 'has-bottom-divider',
     className
   );
-
-  const user = AuthService.getCurrentUser();
+    const user = AuthService.getCurrentUser();
 
   return (
     <header
@@ -141,7 +140,6 @@ const Header = ({
                         <Link to="/signup" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Sign up</Link>
                       </li>
                     </ul>}
-
                   {user &&
 
                   <ul
@@ -152,6 +150,7 @@ const Header = ({
                     </li>
                   </ul>
                   }
+
                   {user &&
 
                   <ul
